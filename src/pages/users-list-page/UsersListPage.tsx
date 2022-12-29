@@ -1,3 +1,4 @@
+import { Box, Grid } from "@mui/material";
 import { useEffect } from "react";
 import { User } from "../../components/user/User";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -11,11 +12,19 @@ export const UsersListPage = () => {
     dispatch(UsersFetch());
   }, []);
 
+  if (isLoading) return <div>loading</div>;
+  if (error) return <div>error</div>;
   return (
-    <div>
+    <Grid
+      container
+      spacing={{ xs: 2, md: 3 }}
+      columns={{ xs: 2, sm: 8, md: 12 }}
+    >
       {users?.map((user) => (
-        <User user={user} />
+        <Grid item xs={2} sm={4} md={4}>
+          <User user={user} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
