@@ -31,9 +31,10 @@ export const UsersListPage = () => {
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 2, sm: 8, md: 12 }}
+        sx={{ justifyContent: "center" }}
       >
         {users?.map((user) => (
-          <Grid key={user.uid} item xs={2} sm={4} md={4}>
+          <Grid key={user.uid} item>
             <User user={user} />
           </Grid>
         ))}

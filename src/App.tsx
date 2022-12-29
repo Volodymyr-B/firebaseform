@@ -15,7 +15,7 @@ function App() {
           bgcolor: " rgba(114, 114, 114, 0.2)",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          // alignItems: "start",
           paddingY: "20px",
           minHeight: "90vh",
         }}

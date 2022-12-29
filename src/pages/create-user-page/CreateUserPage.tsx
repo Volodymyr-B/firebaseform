@@ -1,21 +1,14 @@
-import { Box, Button, InputAdornment, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
+
 import { yupResolver } from "@hookform/resolvers/yup";
-import { IUser } from "../../interfaces/IUser";
+import { validationSchema } from "../../utils/validationSchema";
 import { createUser } from "../../service/create-user";
 
-const validationSchema = yup.object({
-  avatar: yup.string(),
-  birthday: yup.string().required().min(8).max(8),
-  email: yup.string().required().email(),
-  lastName: yup.string().required().min(3).max(12),
-  name: yup.string().required().min(2).max(12),
-  phone: yup.string().required().min(11).max(11),
-});
+import { IUser } from "../../interfaces/IUser";
 
 export const CreateUserPage = () => {
-  const { register, handleSubmit, formState } = useForm<IUser>({
+  const { register, handleSubmit, formState, reset } = useForm<IUser>({
     defaultValues: {
       avatar: "https://picsum.photos/200",
       birthday: "",
@@ -30,10 +23,12 @@ export const CreateUserPage = () => {
   const onSubmit = async (values: IUser) => {
     try {
       await createUser(values);
+      reset();
     } catch (e) {
       console.log("error for update");
     }
   };
+
   return (
     <Box
       component="form"
@@ -64,12 +59,13 @@ export const CreateUserPage = () => {
       />
       <TextField
         label="Phone"
+        type="number"
         placeholder="+38(0xx) xx-xx-xxx"
-        helperText={formState.errors.email?.message || " "}
+        helperText={formState.errors.phone?.message || " "}
         {...register("phone")}
       />
       <TextField
-        label="Birthday"
+        type="date"
         helperText={formState.errors.birthday?.message || " "}
         {...register("birthday")}
       />

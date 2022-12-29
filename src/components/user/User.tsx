@@ -1,5 +1,12 @@
 import { FC } from "react";
-import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  CardContent,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { IUser } from "../../interfaces/IUser";
 
 interface UserProps {
@@ -9,13 +16,20 @@ interface UserProps {
 export const User: FC<UserProps> = ({ user }) => {
   const { avatar, name, birthday, email, lastName, phone } = user;
   return (
-    <Card sx={{ minHeight: 200 }}>
+    <Paper elevation={4} sx={{ minHeight: 200, minWidth: 300 }}>
       <CardContent>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Avatar src={avatar} alt={avatar} />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingBottom: "10px",
+          }}
+        >
+          <Avatar src={avatar} alt={"avatar"} sx={{ width: 70, height: 70 }} />
           <Box>
             <Typography variant="h6">{name}</Typography>
             <Typography variant="h5">{lastName}</Typography>
+            <Typography variant="body1">{birthday}</Typography>
           </Box>
         </Box>
         <Box
@@ -25,11 +39,14 @@ export const User: FC<UserProps> = ({ user }) => {
             flexDirection: "column",
           }}
         >
-          <Typography variant="body1">{birthday}</Typography>
-          <Typography variant="h6">{email}</Typography>
-          <Typography variant="h6">{phone}</Typography>
+          <Button>
+            <a href={`mailto:${email}`}>{email}</a>
+          </Button>
+          <Button>
+            <a href={`tel:${phone}`}>{phone}</a>
+          </Button>
         </Box>
       </CardContent>
-    </Card>
+    </Paper>
   );
 };

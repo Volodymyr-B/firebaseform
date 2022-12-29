@@ -9,3 +9,12 @@ body {
 a {
   text-decoration: none;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.MuiFormHelperText-root {
+  color: rgba(255, 0, 0, 0.8) !important;
+  font-size: medium !important;
+}
