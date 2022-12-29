@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background-image: url(./assets/bg.png);
+}
 a {
   text-decoration: none;
 }
