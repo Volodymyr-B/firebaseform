@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { Error } from "../../components/error/Error";
 import { Loader } from "../../components/loader/Loader";
@@ -18,6 +18,13 @@ export const UsersListPage = () => {
   if (error) return <Error />;
   return (
     <Box>
+      <Typography
+        variant="h4"
+        color="#1976d2"
+        sx={{ textAlign: "center", marginBottom: "15px" }}
+      >
+        List of our users
+      </Typography>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}

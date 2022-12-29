@@ -1,12 +1,19 @@
-import { Alert, Box, Button, Snackbar, TextField } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "../../utils/validationSchema";
 import { createUser } from "../../service/create-user";
 
 import { IUser } from "../../interfaces/IUser";
-import { useState } from "react";
+import {
+  Alert,
+  Box,
+  Button,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 export const CreateUserPage = () => {
   const [successForm, setsuccessForm] = useState(false);
@@ -46,6 +53,13 @@ export const CreateUserPage = () => {
       }}
       onSubmit={handleSubmit(onSubmit)}
     >
+      <Typography
+        variant="h4"
+        color="#1976d2"
+        sx={{ textAlign: "center", marginBottom: "15px" }}
+      >
+        Fill the form
+      </Typography>
       <TextField
         label="Name"
         helperText={formState.errors.name?.message || " "}
