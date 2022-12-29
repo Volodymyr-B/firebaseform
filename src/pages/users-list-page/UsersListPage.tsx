@@ -1,5 +1,6 @@
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useEffect } from "react";
+import { Error } from "../../components/error/Error";
 import { Loader } from "../../components/loader/Loader";
 import { User } from "../../components/user/User";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -9,25 +10,14 @@ export const UsersListPage = () => {
   const dispatch = useAppDispatch();
   const { users, isLoading, error } = useAppSelector((state) => state.users);
 
-  const refreshHandler = () => {
-    dispatch(UsersFetch());
-  };
-
   useEffect(() => {
     dispatch(UsersFetch());
   }, []);
 
   if (isLoading) return <Loader />;
-  if (error) return <div>error</div>;
+  if (error) return <Error />;
   return (
     <Box>
-      <Button
-        sx={{ marginBottom: "20px" }}
-        variant="contained"
-        onClick={refreshHandler}
-      >
-        refresh
-      </Button>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
