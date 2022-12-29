@@ -1,15 +1,9 @@
 import { FC } from "react";
 import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import { IUser } from "../../interfaces/IUser";
 
 interface UserProps {
-  user: {
-    avatar: string;
-    birthday: string;
-    email: string;
-    lastName: string;
-    name: string;
-    phone: string;
-  };
+  user: IUser;
 }
 
 export const User: FC<UserProps> = ({ user }) => {
