@@ -9,7 +9,8 @@ import { IUser } from "../../interfaces/IUser";
 import { useState } from "react";
 
 export const CreateUserPage = () => {
-  const [open, setOpen] = useState(false);
+  const [successForm, setsuccessForm] = useState(false);
+  const [errorForm, setErrorForm] = useState(false);
   const { register, handleSubmit, formState, reset } = useForm<IUser>({
     defaultValues: {
       avatar: "https://picsum.photos/200",
@@ -25,10 +26,10 @@ export const CreateUserPage = () => {
   const onSubmit = async (values: IUser) => {
     try {
       await createUser(values);
-      setOpen(true);
+      setsuccessForm(true);
       reset();
     } catch (e) {
-      console.log("error for update");
+      setErrorForm(true);
     }
   };
 
@@ -80,12 +81,21 @@ export const CreateUserPage = () => {
         Create
       </Button>
       <Snackbar
-        open={open}
+        open={successForm}
         autoHideDuration={4000}
-        onClose={() => setOpen(false)}
+        onClose={() => setsuccessForm(false)}
       >
-        <Alert severity="success" sx={{ width: "100%" }}>
+        <Alert severity="success" sx={{ width: "400px" }}>
           Success !
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={errorForm}
+        autoHideDuration={4000}
+        onClose={() => setErrorForm(false)}
+      >
+        <Alert severity="error" sx={{ width: "400px" }}>
+          Error, please try again later!
         </Alert>
       </Snackbar>
     </Box>
