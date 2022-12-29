@@ -11,7 +11,10 @@ export const UsersFetch = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(usersFetching());
     const response = await getDocs(usersCollection);
-    const usersData: any = response.docs.map((doc) => doc.data());
+    const usersData: any = response.docs.map((doc) => ({
+      ...doc.data(),
+      uid: doc.id,
+    }));
     dispatch(usersFetchingSuccess(usersData));
   } catch (e) {
     dispatch(usersFetchingError("error"));
