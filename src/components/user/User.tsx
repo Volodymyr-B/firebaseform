@@ -16,7 +16,7 @@ interface UserProps {
 export const User: FC<UserProps> = ({ user }) => {
   const { avatar, name, birthday, email, lastName, phone } = user;
   return (
-    <Paper elevation={4} sx={{ minHeight: 200, width: 315 }}>
+    <Paper elevation={4} sx={{ minHeight: 200, width: 310 }}>
       <CardContent>
         <Box
           sx={{

@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Container
         sx={{
-          bgcolor: " rgba(114, 114, 114, 0.2)",
+          bgcolor: "rgba(114, 114, 114, 0.2)",
           display: "flex",
           justifyContent: "center",
           // alignItems: "start",
