@@ -9,7 +9,7 @@ interface UserProps {
 export const User: FC<UserProps> = ({ user }) => {
   const { avatar, name, birthday, email, lastName, phone } = user;
   return (
-    <Card sx={{ maxWidth: 310 }}>
+    <Card sx={{ minHeight: 200 }}>
       <CardContent>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Avatar src={avatar} alt={avatar} />
