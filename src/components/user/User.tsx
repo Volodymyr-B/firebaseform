@@ -43,7 +43,7 @@ export const User: FC<UserProps> = ({ user }) => {
             <a href={`mailto:${email}`}>{email}</a>
           </Button>
           <Button>
-            <a href={`tel:${phone}`}>{phone}</a>
+            <a href={`tel:+380${phone}`}>+380 {phone}</a>
           </Button>
         </Box>
       </CardContent>
