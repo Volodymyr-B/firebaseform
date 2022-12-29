@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Alert, Box, Button, Snackbar, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,8 +6,10 @@ import { validationSchema } from "../../utils/validationSchema";
 import { createUser } from "../../service/create-user";
 
 import { IUser } from "../../interfaces/IUser";
+import { useState } from "react";
 
 export const CreateUserPage = () => {
+  const [open, setOpen] = useState(false);
   const { register, handleSubmit, formState, reset } = useForm<IUser>({
     defaultValues: {
       avatar: "https://picsum.photos/200",
@@ -23,6 +25,7 @@ export const CreateUserPage = () => {
   const onSubmit = async (values: IUser) => {
     try {
       await createUser(values);
+      setOpen(true);
       reset();
     } catch (e) {
       console.log("error for update");
@@ -76,6 +79,15 @@ export const CreateUserPage = () => {
       >
         Create
       </Button>
+      <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert severity="success" sx={{ width: "100%" }}>
+          Success !
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
