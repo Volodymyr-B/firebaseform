@@ -1,5 +1,5 @@
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
+import { usersCollection } from "./../../service/users-data-ref";
+import { getDocs } from "firebase/firestore";
 import { AppDispatch } from "./../store";
 import {
   usersFetching,
@@ -8,7 +8,6 @@ import {
 } from "./users-slice";
 
 export const UsersFetch = () => async (dispatch: AppDispatch) => {
-  const usersCollection = collection(db, "users");
   try {
     dispatch(usersFetching());
     const response = await getDocs(usersCollection);
