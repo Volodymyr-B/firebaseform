@@ -1,5 +1,6 @@
 import { Box, Button, Grid } from "@mui/material";
 import { useEffect } from "react";
+import { Loader } from "../../components/loader/Loader";
 import { User } from "../../components/user/User";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { UsersFetch } from "../../store/users-slice/users-action";
@@ -16,7 +17,7 @@ export const UsersListPage = () => {
     dispatch(UsersFetch());
   }, []);
 
-  if (isLoading) return <div>loading</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>error</div>;
   return (
     <Box>
