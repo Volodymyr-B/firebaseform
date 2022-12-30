@@ -17,6 +17,6 @@ export const UsersFetch = () => async (dispatch: AppDispatch) => {
     }));
     dispatch(usersFetchingSuccess(usersData));
   } catch (e) {
-    dispatch(usersFetchingError("error"));
+    dispatch(usersFetchingError((e as Error).message));
   }
 };
