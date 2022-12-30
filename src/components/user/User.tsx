@@ -27,8 +27,12 @@ export const User: FC<UserProps> = ({ user }) => {
         >
           <Avatar src={avatar} alt={"avatar"} sx={{ width: 70, height: 70 }} />
           <Box>
-            <Typography variant="h6">{name}</Typography>
-            <Typography variant="h5">{lastName}</Typography>
+            <Typography variant="h6" textTransform={"capitalize"}>
+              {name}
+            </Typography>
+            <Typography variant="h5" textTransform={"capitalize"}>
+              {lastName}
+            </Typography>
             <Typography variant="body1">{birthday}</Typography>
           </Box>
         </Box>

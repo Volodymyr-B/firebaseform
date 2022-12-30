@@ -25,6 +25,6 @@ export const validationSchema = yup.object({
   phone: yup
     .string()
     .required("this field is required")
-    .min(11, "please enter valid phone number")
-    .max(11, "please enter valid phone number"),
+    .min(9, "please enter valid phone number")
+    .max(9, "please enter valid phone number"),
 });
