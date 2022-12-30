@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/firebaseform/static/css/main.59f041db.css",
+    "main.js": "/firebaseform/static/js/main.49ddf177.js",
+    "static/media/bg.png": "/firebaseform/static/media/bg.90911f9d831f07d686b5.png",
+    "index.html": "/firebaseform/index.html",
+    "main.59f041db.css.map": "/firebaseform/static/css/main.59f041db.css.map",
+    "main.49ddf177.js.map": "/firebaseform/static/js/main.49ddf177.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59f041db.css",
+    "static/js/main.49ddf177.js"
+  ]
+}
