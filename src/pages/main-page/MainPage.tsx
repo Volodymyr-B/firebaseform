@@ -52,7 +52,7 @@ export const MainPage = () => {
                   <Button>{tech.title}</Button>
                 </a>
               ))}
-              <Typography variant="h6">and further</Typography>
+              <Typography variant="h6">and other</Typography>
             </Box>
           </Paper>
           <Paper sx={{ padding: "10px" }}>
