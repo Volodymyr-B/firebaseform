@@ -1,4 +1,3 @@
-import { DocumentData } from "firebase/firestore";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser } from "../../interfaces/IUser";
 
@@ -20,7 +19,7 @@ const usersSlice = createSlice({
   reducers: {
     usersFetching(state) {
       state.isLoading = true;
-      //   state.users = initialState.users;
+      state.error = null;
     },
     usersFetchingSuccess(state, action: PayloadAction<IUser[]>) {
       state.users = action.payload;

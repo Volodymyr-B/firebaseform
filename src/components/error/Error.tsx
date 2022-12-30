@@ -1,6 +1,7 @@
-import { Box, Button, Typography } from "@mui/material";
 import { useAppDispatch } from "../../hooks/redux";
 import { UsersFetch } from "../../store/users-slice/users-action";
+
+import { Box, Button, Typography } from "@mui/material";
 
 export const Error = () => {
   const dispatch = useAppDispatch();

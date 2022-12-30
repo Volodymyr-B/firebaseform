@@ -1,10 +1,12 @@
-import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { UsersFetch } from "../../store/users-slice/users-action";
+
 import { Error } from "../../components/error/Error";
 import { Loader } from "../../components/loader/Loader";
 import { User } from "../../components/user/User";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { UsersFetch } from "../../store/users-slice/users-action";
+
+import { Box, Grid, Typography } from "@mui/material";
 
 export const UsersListPage = () => {
   const dispatch = useAppDispatch();

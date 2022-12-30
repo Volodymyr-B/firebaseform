@@ -5,7 +5,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "../../utils/validationSchema";
 import { createUser } from "../../service/create-user";
 
-import { IUser } from "../../interfaces/IUser";
 import {
   Alert,
   Box,
@@ -14,6 +13,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { IUser } from "../../interfaces/IUser";
 
 export const CreateUserPage = () => {
   const [successForm, setsuccessForm] = useState(false);

@@ -1,6 +1,7 @@
-import { Box, Button, Paper, Typography } from "@mui/material";
 import { capabilitiesList } from "../../constants/capabilities-list";
 import { technologyList } from "../../constants/technology-list";
+
+import { Box, Button, Paper, Typography } from "@mui/material";
 
 export const MainPage = () => {
   return (
