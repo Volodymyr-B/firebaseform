@@ -16,7 +16,7 @@ export const Header = () => {
       <AppBar component="nav" position="static">
         <Container maxWidth="xl">
           <Toolbar>
-            <Typography sx={{ flexGrow: 1 }}>Application</Typography>
+            <Typography sx={{ flexGrow: 1 }}>Firebase</Typography>
             <Link to="/">
               <Button sx={{ color: "white" }}>Main</Button>
             </Link>
