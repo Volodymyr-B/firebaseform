@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { IUser } from "../../interfaces/IUser";
+import { phoneView } from "../../utils/phone-view-regex";
 
 interface UserProps {
   user: IUser;
@@ -47,7 +48,7 @@ export const User: FC<UserProps> = ({ user }) => {
             <a href={`mailto:${email}`}>{email}</a>
           </Button>
           <Button>
-            <a href={`tel:+380${phone}`}>+380 {phone}</a>
+            <a href={`tel:+38${phone}`}>{phoneView(phone)}</a>
           </Button>
         </Box>
       </CardContent>

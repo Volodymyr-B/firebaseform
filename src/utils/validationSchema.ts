@@ -1,5 +1,8 @@
 import * as yup from "yup";
 
+const phoneRegExp =
+  /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+
 export const validationSchema = yup.object({
   avatar: yup.string().required("this field is required"),
   birthday: yup
@@ -10,21 +13,20 @@ export const validationSchema = yup.object({
   email: yup
     .string()
     .required("this field is required")
-    .email()
-    .max(30, "30 sumbols maximum"),
+    .email("please enter valid email")
+    .max(30, "30 symbols maximum"),
   lastName: yup
     .string()
     .required("this field is required")
-    .min(3, "3 sumbol minimum")
-    .max(12, "12 sumbols maximum"),
+    .min(3, "3 symbol minimum")
+    .max(12, "12 symbols maximum"),
   name: yup
     .string()
     .required("this field is required")
-    .min(2, "2 sumbol minimum")
-    .max(12, "12 sumbols maximum"),
+    .min(2, "2 symbol minimum")
+    .max(12, "12 symbols maximum"),
   phone: yup
     .string()
-    .required("this field is required")
-    .min(9, "please enter valid phone number")
-    .max(9, "please enter valid phone number"),
+    .matches(phoneRegExp, "phone number is not valid")
+    .required("this field is required"),
 });

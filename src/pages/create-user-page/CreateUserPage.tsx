@@ -78,7 +78,7 @@ export const CreateUserPage = () => {
       <TextField
         label="Phone"
         type="number"
-        placeholder="+38(0xx) xx-xx-xxx"
+        placeholder="+38(xxx) xx-xx-xxx"
         helperText={formState.errors.phone?.message || " "}
         {...register("phone")}
       />
