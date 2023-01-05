@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "../../utils/validationSchema";
 import { createUser } from "../../service/create-user";
@@ -13,12 +13,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { MuiTelInput } from "mui-tel-input";
 import { IUser } from "../../interfaces/IUser";
 
 export const CreateUserPage = () => {
   const [successForm, setsuccessForm] = useState(false);
   const [errorForm, setErrorForm] = useState(false);
-  const { register, handleSubmit, formState, reset } = useForm<IUser>({
+  const { register, control, handleSubmit, formState, reset } = useForm<IUser>({
     defaultValues: {
       avatar: "https://picsum.photos/200",
       birthday: "",
@@ -75,12 +76,20 @@ export const CreateUserPage = () => {
         helperText={formState.errors.email?.message || " "}
         {...register("email")}
       />
-      <TextField
-        label="Phone"
-        type="number"
-        placeholder="+38(xxx) xx-xx-xxx"
-        helperText={formState.errors.phone?.message || " "}
-        {...register("phone")}
+      <Controller
+        name="phone"
+        control={control}
+        render={({ field }) => (
+          <MuiTelInput
+            {...register("phone")}
+            {...field}
+            label="Phone"
+            defaultCountry="UA"
+            disableDropdown
+            forceCallingCode
+            helperText={formState.errors.phone?.message || " "}
+          />
+        )}
       />
       <TextField
         type="date"

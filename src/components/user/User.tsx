@@ -48,7 +48,9 @@ export const User: FC<UserProps> = ({ user }) => {
             <a href={`mailto:${email}`}>{email}</a>
           </Button>
           <Button>
-            <a href={`tel:+38${phone}`}>{phoneView(phone)}</a>
+            <a href={`tel:${phoneView(phone).callPhone}`}>
+              {phoneView(phone).viewPhone}
+            </a>
           </Button>
         </Box>
       </CardContent>
