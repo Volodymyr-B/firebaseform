@@ -1,7 +1,5 @@
 import * as yup from "yup";
 
-const phoneRegExp2 =
-  /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
 const phoneRegExp = /(?=.*\+[0-9]{3}\s[0-9]{2}\s[0-9]{3}\s[0-9]{4,5}$)/;
 
 export const validationSchema = yup.object({
