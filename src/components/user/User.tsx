@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { phoneView } from "../../utils/phone-view-regex";
 import {
   Avatar,
   Box,
@@ -8,7 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import { IUser } from "../../interfaces/IUser";
-import { phoneView } from "../../utils/phone-view-regex";
 
 interface UserProps {
   user: IUser;
@@ -16,6 +16,7 @@ interface UserProps {
 
 export const User: FC<UserProps> = ({ user }) => {
   const { avatar, name, birthday, email, lastName, phone } = user;
+  const { callPhone, viewPhone } = phoneView(phone);
   return (
     <Paper elevation={4} sx={{ minHeight: 200, width: 310 }}>
       <CardContent>
@@ -48,9 +49,7 @@ export const User: FC<UserProps> = ({ user }) => {
             <a href={`mailto:${email}`}>{email}</a>
           </Button>
           <Button>
-            <a href={`tel:${phoneView(phone).callPhone}`}>
-              {phoneView(phone).viewPhone}
-            </a>
+            <a href={`tel:${callPhone}`}>{viewPhone}</a>
           </Button>
         </Box>
       </CardContent>
